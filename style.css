@@ -1,0 +1,989 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+    body {
+      margin: 0;
+      font-family: EuclidSquare, 'Open Sans', sans-serif;
+      background-color:rgba(238,238,238,1.00);
+      color: #0d0d0d;
+    }
+
+/* =======================
+   GLOBAL / BASIS
+========================== */
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* =======================
+   HEADER (Desktop + Mobile)
+========================== */
+
+.main-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(238, 238, 238, 1);
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+}
+
+/* WICHTIG: Header-Container volle Breite! */
+.main-header .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1c2a39;
+  white-space: nowrap;
+}
+
+/* Hamburger */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #1c2a39;
+  cursor: pointer;
+  display: block; /* nur mobil sichtbar */
+}
+
+/* =======================
+   DESKTOP NAVIGATION
+========================== */
+
+.main-nav {
+  display: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav li {
+  position: relative;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #1c2a39;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  font-size: 1.1rem;
+}
+
+
+/* Submenü Desktop */
+.main-nav .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.main-nav .has-submenu:hover .submenu {
+  display: block;
+}
+
+.main-nav .submenu a {
+  display: block;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+}
+
+.main-nav .submenu a:hover {
+  background: #f0f0f0;
+}
+
+.main-nav .arrow {
+  font-size: 0.65rem;
+  margin-left: 0.3rem;
+}
+
+/* =======================
+   DESKTOP (>=1024px)
+========================== */
+
+@media screen and (min-width: 1024px) {
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+    margin-left: auto; /* Menü wirklich rechts! */
+    margin-right: 1rem;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .logo-title {
+    margin-right: 2rem; /* Abstand zum Menü */
+  }
+
+  /* Logo im Header sichtbar */
+  .logo {
+    display: block;
+  }
+}
+
+/* =======================
+   MOBILES MENÜ OVERLAY
+========================== */
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: #222; /* Außen dunkler Rand */
+  display: none;
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+.mobile-menu-overlay.open {
+  display: block;
+}
+
+/* innere Box („Karte“) */
+.mobile-menu-box {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header innen */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background-color: rgba(238, 238, 238, 1);
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.menu-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1c2a39;
+}
+
+.menu-logo {
+  height: 32px;
+}
+
+.close-menu {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #1c2a39;
+  cursor: pointer;
+}
+
+/* Mobile: Logo ausblenden */
+@media screen and (max-width: 1023px) {
+  .logo {
+    display: none;
+  }
+  .menu-logo-wrapper {
+    display: none;
+  }
+}
+
+/* =======================
+   MOBILE MENÜ LISTEN
+========================== */
+
+.mobile-menu-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu-box li {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+#mobileMenu a {
+  color: #1c2a39;
+  text-decoration: none;
+}
+
+#mobileMenu a:hover {
+  text-decoration: underline;
+}
+
+/* Hauptpunkte */
+.mobile-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.6rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.arrow {
+  font-size: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+/* Submenüs */
+.mobile-submenu {
+  display: none;
+  padding: 0.5rem 1.6rem 1rem;
+  background: #f6f6f6;
+}
+
+/* Anzeige bei .open */
+#mobileMenu .has-submenu.open > .mobile-submenu {
+  display: block !important;
+}
+
+/* Submenü-Elemente */
+.mobile-submenu li {
+  border: none;
+}
+
+.mobile-submenu a {
+  display: block;
+  padding: 1rem 3rem;
+  font-size: 0.96rem;
+}
+
+/* Submenü Trennlinien (leicht dunkler) */
+.mobile-submenu li a {
+  border-bottom: 1px solid #d0d0d0;
+}
+.mobile-submenu li:last-child a {
+  border-bottom: none;
+}
+
+/* Fokus/Active-Outline */
+#mobileMenu a:focus,
+#mobileMenu a.active {
+  outline: 2px solid #f0a500;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.menu-toggle.is-open {
+  font-size: 2rem;
+}
+
+
+
+
+
+
+/* Hero-Bild */
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hero-Text */
+.hero-text {
+  background-color: #f5f6f7;
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #1c2a39;
+}
+.hero-text .section-label {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 auto;
+  max-width: 800px;
+  line-height: 1.7;
+}
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 1.8rem;   /* angenehme Größe auf Handy */
+    line-height: 1.9;
+    hyphens: none;
+  }
+}
+
+/* Sehr kleine Bildschirme (< 480px) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+}
+.hero-text p {
+  display: none;
+}
+.hero-logo {
+  margin: 1rem;
+}
+
+.hero-logo img {
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* Willkommensbereich im Kachelstil */
+.welcome {
+  padding: 3rem 1rem;
+  background-color: #f9f9f9;
+}
+.welcome-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.welcome-box .box {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  flex: 1 1 450px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.image-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.text-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.text-box p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* Mobile: Schrift kleiner */
+@media (max-width: 768px) {
+  .text-box p {
+    font-size: 1.05rem;     /* kleiner */
+      
+  }
+}
+
+/* === Über uns in 3 Punkten === */
+.ueber-uns-kacheln {
+  background-color: #f9f9f9;
+  padding: 0rem 1rem 2rem 1rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1c2a39;
+}
+
+.grid-boxen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Abschnittsüberschrift (h2) zentriert */
+.ueber-uns-kacheln .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+/* Grid-Layout */
+.grid-boxen {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-boxen {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Box-Stil */
+.ueber-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Box-Überschrift (h3) zentriert */
+.ueber-box h3 {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Fließtext (p) linksbündig */
+.ueber-box p {
+  text-align: left;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+  hyphens: auto;
+  
+}
+/* -------------------------
+   MOBILE ANPASSUNG (< 768px)
+--------------------------- */
+@media (max-width: 768px) {
+  .ueber-box h3 {
+    font-size: 1.2rem;   /* etwas kleiner */    
+  }
+
+  .ueber-box p {
+    font-size: 1.05rem;  
+    line-height: 1.9;/* angenehm mobil lesbar */   
+    text-align: justify;
+  }
+}
+
+/* === Instrumente & Ausbildung === */
+.instrumente-ausbildung {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.instrumente-ausbildung .section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1c2a39;
+}
+
+.instrumente-ausbildung .grid-boxen {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ausbildung-box {
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  flex: 1 1 300px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ueber-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.ausbildung-box h3 {
+  font-size: 1.4rem;
+  margin: 1rem auto;
+  color: #1c2a39;
+}
+
+.ausbildung-box p {
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: left;
+  hyphens: auto;
+}
+
+.footer-modern {
+  background-color: #fff; /* Fallback */
+  border-top: 1px solid #eaeaea;
+  padding: 60px 20px 30px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #222;
+  /* Hintergrundbild */
+  background-image: url('../images/karusell/parade-gv.jpg'); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-modern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.85); /* Weißes Overlay */
+  z-index: -1;
+}
+
+.footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.footer-col h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #007bff;
+}
+
+.footer-legal {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #777;
+  text-align: left;
+}
+
+
+/* Footer */
+footer {
+  background:rgba(26,24,24,1.00);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+
+}
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.social-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  width: 140px; /* Feste Breite statt max-width */
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.social-buttons a img {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-instagram {
+  background: linear-gradient(45deg, #e1306c, #fd1d1d);
+}
+
+.btn-facebook {
+  background-color: #1877f2;
+}
+
+.social-buttons a:hover {
+  transform: scale(1.05);
+}
+
+.mitglieder-gruppe {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.gruppen-titel {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+/* Responsive Darstellung der Mitglieder-Boxen */
+.mitglieder-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.mitglied-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  max-width: 220px;
+  transition: transform 0.2s;
+}
+
+.mitglied-card:hover {
+  transform: scale(1.03);
+}
+
+.member-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Querformat-Bilder */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.mitglied-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.mitglied-rolle {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Breakpoint: Mobile Darstellung */
+@media (max-width: 600px) {
+  .mitglied-card {
+    max-width: 90%;      /* Breiter auf kleinen Screens */
+    padding: 1.2rem;
+  }
+
+  .mitglied-name {
+    font-size: 1.2rem;
+  }
+
+  .mitglied-rolle {
+    font-size: 1.05rem;
+  }
+}
+.intro-text {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+  .intro-text p {
+    font-size: 1.15rem;     /* kleiner für Smartphones */
+    line-height: 1.9;
+     text-align: left;
+    hyphens: auto;
+  }
+}
+
+/* Sehr kleine Smartphones (< 480px) */
+@media (max-width: 480px) {
+  .intro-text p {
+    font-size: 1.1rem;
+    text-align: left;
+    hyphens: auto;
+  }
+}
+.grid-koenige {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.kachel {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.kachel:hover {
+  transform: translateY(-4px);
+}
+
+.kachel h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.kachel p {
+  margin: 0;
+  color: #555;
+}
+
+.verstorben {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.btn-blau {
+  background-color: #156AD8;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  min-width: 150px;       /* feste Mindestbreite für alle */
+  transition: background-color 0.3s ease;
+}
+
+.btn-blau:hover {
+  background-color: #1d7af0;
+  color: white;
+}
+h3{margin:1rem auto;}
+
+
+/* Abschnitt Instrumente & Ausbildung */
+.instrumente-ausbildung {
+  margin: 3rem 0;
+}
+
+/* Layout der Boxen: nebeneinander, gleiche Höhe */
+.instrumente-ausbildung .grid-boxen {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  flex-wrap: wrap; /* falls der Platz knapp wird */
+}
+
+/* einzelne Box */
+.instrumente-ausbildung .ausbildung-box {
+  flex: 1 1 0;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;   /* damit Button nach unten kann */
+}
+
+/* Bild in der Box */
+.instrumente-ausbildung .ausbildung-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Text soll den Platz füllen */
+.instrumente-ausbildung .ausbildung-box p {
+  flex-grow: 1;           /* streckt sich, sodass Button unten landet */
+  margin-bottom: 1rem;
+}
+
+/* Button-Stil angleichen */
+.btn-blau {
+  background-color: #156AD8;
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  display: inline-flex;       /* zentriert Text im Button */
+  justify-content: center;
+  align-items: center;
+  min-width: 160px;           /* gleiche Mindestbreite für alle */
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top:1rem !important;
+}
+
+/* Button immer ganz nach unten in der Box */
+.instrumente-ausbildung .ausbildung-box .btn-blau {
+  margin-top: auto;
+}
+
+/* Hover-Effekt (optional) */
+.btn-blau:hover {
+  background-color: #1D1767;
+}
+
+/* Responsive: unter ~992px untereinander statt nebeneinander */
+@media (max-width: 991px) {
+  .instrumente-ausbildung .grid-boxen {
+    flex-direction: column;
+  }
+}
+.px-2 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+  
+}
+
+.mb-2 {
+  margin-bottom: 1rem !important;
+}
+
+
+/* Grid-Container: Desktop-Ansicht */
+.grid-boxen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Spalten am Desktop */
+  gap: 2rem;
+}
+
+/* Jede Box gleich hoch, Button immer unten */
+.ueber-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+.ueber-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.ueber-box p {
+  flex-grow: 1;  /* füllt den Zwischenraum, damit alle Buttons unten sitzen */
+}
+
+/* Button-Stil angleichen */
+.btn-blau {
+  background-color: #156AD8;
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 160px;
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+/* Hover-Effekt (optional) */
+.btn-blau:hover {
+  background-color: #1D1767;
+}
+
+/* ========================= */
+/*    RESPONSIVE BREAKPOINTS */
+/* ========================= */
+
+/* Tablet: 2 Spalten */
+@media (max-width: 992px) {
+  .grid-boxen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Handy: 1 Spalte, alles zentriert */
+@media (max-width: 640px) {
+  .grid-boxen {
+    grid-template-columns: 1fr;
+  }
+
+  .ueber-box {
+    text-align: center;
+  }
+
+  .ueber-box img {
+    margin: 0 auto 1rem;
+  }
+
+  .btn-blau {
+    width: 100%;          /* Button über volle Breite */
+    justify-content: center;
+  }
+}
